@@ -40,18 +40,6 @@ database.ref().orderByChild("dateAdded").on("child_added", function (snapshot) {
     // storing the snapshot.val() in a variable for convenience
     var sv = snapshot.val();
 
-    // Console.loging the last user's data
-    console.log(sv.name);
-    console.log(sv.role);
-    console.log(sv.startDate);
-    console.log(sv.rate);
-
-    // Change the HTML to reflect
-    //$("#employee").text(sv.name);
-    //$("#role").text(sv.role);
-    //$("#hire-date").text(sv.startDate);
-    //$("#pay").text(sv.rate);
-
     // Handle the errors
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
@@ -67,7 +55,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function (snapshot) {
     console.log(childSnapshot.val().rate);
     
     // full list of items to the well
-    $("#all-employees").append("<div class='well'><span class='employee-name'> " + childSnapshot.val().name +
+    $("#all-employees").append("<div class='well border-bottom'><span class='employee-name'> " + childSnapshot.val().name +
       " </span><span class='employee-role'> " + childSnapshot.val().role +
         " </span><span class='employee-hire-date'> " + childSnapshot.val().startDate +
           " </span><span class='employee-pay'> " + childSnapshot.val().comment + " </span></div>");
